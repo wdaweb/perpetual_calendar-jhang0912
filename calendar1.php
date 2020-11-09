@@ -11,6 +11,32 @@
     <title>CALENDAR</title>
   </head>
   <body >
+<?php
+  if (!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
+  $thisMonth = date('m');
+  } elseif (isset($_GET['nextMonth'])) {
+  $thisMonth = $_GET['nextMonth'];
+  } elseif (isset($_GET['preMonth'])) {
+  $thisMonth = $_GET['preMonth'];
+  }
+  
+  $thisMonthTrue = $thisMonth;
+  $Year = strtotime("+0 year");
+  $thisYear = date('Y', $Year);
+  
+  if($thisMonth > 11) {
+  $thisYear = $thisYear + floor(($thisMonth-1)/12);
+  $thisMonth = $thisMonth - 12 * ($thisYear - date("Y"));
+  }elseif($thisMonth<1){
+  $thisYear=$thisYear - (floor($thisMonth/-12)+1);
+  $thisMonth = $thisMonth + 12 * abs(($thisYear - date("Y")));
+  }
+
+  $firstDate = strtotime(date("$thisYear-$thisMonth-1"));
+  $startDayWeek = date('w', $firstDate);
+  $thisMonthDay = date('t', $firstDate);
+
+?>
 <header>
   <div class="top-header container-fluid  text-white col-12 border-bottom border-warning">
     <div class="head-logo col col-7 pt-1">CALENDAR</div>
@@ -26,12 +52,15 @@
   <div class="article bg-dark d-flex col-12 p-0">
     <div class="calendar col-4 p-0">
       <div class="warning-month bg-warning text-white text-center font-weight-bold">
-        <h4>JANUARY</h4>
-        <h1 class="months">01</h1>
+        <h4><?=date('F',$firstDate);?></h4>
+        <h1 class="months"><?=date('n',$firstDate);?></h1>
       </div>
-      <div class="YEAR bg-warning"></div>
+      <div class="YEAR bg-warning ">
+        <h4 class="onYEAR  text-white p-0">YEAR</h4>
+        <h1 class="inYEAR m-0 text-white"><?=date('Y',$firstDate);?></h1>
+      </div>
       <div class="CALENDAR container pt-1.5 col-12">
-      <table class="table text-center text-white table-borderless m-0">
+      <table class="table  text-center text-white table-borderless m-0">
         <tr>
             <th class="text-danger border-bottom">SUN</th>
             <th class="border-bottom">MON</th>
@@ -41,31 +70,8 @@
             <th class="border-bottom">FRI</th>
             <th class="text-danger border-bottom">SAT</th>
         </tr>
+        <tbody>
         <?php
-                if (!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
-                  $thisMonth = date('m');
-              } elseif (isset($_GET['nextMonth'])) {
-                  $thisMonth = $_GET['nextMonth'];
-              } elseif (isset($_GET['preMonth'])) {
-                  $thisMonth = $_GET['preMonth'];
-              }
-      
-              $thisMonthTrue = $thisMonth;
-              $Year = strtotime("+0 year");
-              $thisYear = date('Y', $Year);
-      
-              if($thisMonth > 11) {
-                  $thisYear = $thisYear + floor(($thisMonth-1)/12);
-                  $thisMonth = $thisMonth - 12 * ($thisYear - date("Y"));
-              }elseif($thisMonth<1){
-                  $thisYear=$thisYear - (floor($thisMonth/-12)+1);
-                  $thisMonth = $thisMonth + 12 * abs(($thisYear - date("Y")));
-              }
-              
-              $firstDate = strtotime(date("$thisYear-$thisMonth-1"));
-              $startDayWeek = date('w', $firstDate);
-              $thisMonthDay = date('t', $firstDate);
-      
               for ($i = 0; $i < 6; $i++) {
                   echo "<tr>";
                   for ($j = 1; $j <= 7; $j++) {
@@ -90,8 +96,9 @@
                   echo "</tr>";
               }
         ?>
+        </tbody>
             </table>
-    <table class="table text-center text-white table-borderless m-0">
+    <table class="table  text-center text-white table-borderless m-0">
     <?php
         $nextMonth = ($thisMonthTrue + 1);
         $preMonth = ($thisMonthTrue - 1);    
@@ -170,7 +177,7 @@
   <div class="jhang col-10 text-white d-flex">2020 DESIGN BY
     <div class="yue text-danger">&ensp;JHANG YUE KAI</div>
   </div>
- <div class="artist col-2 text-white text-center">
+  <div class="artist col-2 text-white text-center">
     <h6 class="john text-center">ARTIST</h6>
     <p><img src="images/5e34470404fdef781ff2635db3cae05c.jpg"></p>
     <h5>John William Waterhouse</h5>

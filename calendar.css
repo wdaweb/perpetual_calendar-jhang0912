@@ -43,15 +43,24 @@ height:85vh;
 position:relative;
 }
 .warning-month{
+/* display: none; */
 position: absolute;
 left: 77.5%;
 width:10rem;
 height:25.1vh;
-z-index:10;
+z-index: 10;
 }
 .YEAR{
 height: 25.1vh;
-width: 100%;
+}
+.onYEAR{
+margin-left: 3.15rem;
+letter-spacing: 3.9rem;
+}
+.inYEAR{
+padding-top: 0.3rem;
+padding-left: 3rem;
+font-size: 8rem;
 }
 .CALENDAR{
 background-color: rgb(20, 20, 20);
@@ -65,12 +74,12 @@ font-size: 1.2rem;
 border-radius: 10px;
 font-family: 'Josefin Sans', sans-serif;
 }
+
 h4{
-padding-top: 15%;
 margin: 0;
 }
 .months{
-  margin-top: -20px;
+  padding-top: 5px;
   font-size:8rem;
 }
 .images{
