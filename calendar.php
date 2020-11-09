@@ -44,7 +44,7 @@
 <header>
   <div class="top-header container-fluid  text-white col-12 border-bottom border-warning">
     <div class="head-logo col col-7 pt-1">CALENDAR</div>
-    <form class="form col col-5 " action="calendar1.php" method="$_GET">
+    <form class="form col col-5 " action="calendar.php" method="$_GET">
       <div class="nav active font-weight-bold" href="#">─DATE SEARCH─</div>
       <div class="date input "><input  type="number" name="year" placeholder="Year" min="1970" ></div>
       <div class="date input " ><input  type="number" name="month" placeholder="Month" min="1" max="12"></div>
@@ -109,13 +109,13 @@
         $nextMonth = ($thisMonthTrue + 1);
         $preMonth = ($thisMonthTrue - 1);    
         echo"<tr class='border-top'>";
-        echo"<td><a href='calendar1.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
+        echo"<td><a href='calendar.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
-        echo"<td><a href='calendar1.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
+        echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
         echo"</tr>";
     ?>
     </table>
