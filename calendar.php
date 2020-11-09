@@ -46,8 +46,8 @@
     <div class="head-logo col col-7 pt-1">CALENDAR</div>
     <form class="form col col-5 " action="calendar.php" method="$_GET">
       <div class="nav active font-weight-bold" href="#">─DATE SEARCH─</div>
-      <div class="date input "><input  type="number" name="year" placeholder="Year" min="1970" ></div>
-      <div class="date input " ><input  type="number" name="month" placeholder="Month" min="1" max="12"></div>
+      <div class="date input "><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
+      <div class="date input " ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
       <div class="date"><input type="submit" class="btn btn-outline-warning btn-sm" value="search"></div>
     </form>
   </div>
