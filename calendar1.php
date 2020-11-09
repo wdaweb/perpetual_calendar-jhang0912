@@ -12,7 +12,7 @@
   </head>
   <body >
 <?php
-  if (!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
+  if(!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
   $thisMonth = date('m');
   } elseif (isset($_GET['nextMonth'])) {
   $thisMonth = $_GET['nextMonth'];
@@ -23,16 +23,20 @@
   $thisMonthTrue = $thisMonth;
   $Year = strtotime("+0 year");
   $thisYear = date('Y', $Year);
-  
-  if($thisMonth > 11) {
+
+  if(isset($_GET['year']) && isset($_GET['month'])){
+  $thisYear=$_GET['year'];
+  $thisMonth=$_GET['month'];
+  }elseif($thisMonth > 11) {
   $thisYear = $thisYear + floor(($thisMonth-1)/12);
   $thisMonth = $thisMonth - 12 * ($thisYear - date("Y"));
   }elseif($thisMonth<1){
   $thisYear=$thisYear - (floor($thisMonth/-12)+1);
   $thisMonth = $thisMonth + 12 * abs(($thisYear - date("Y")));
   }
-
+  
   $firstDate = strtotime(date("$thisYear-$thisMonth-1"));
+  
   $startDayWeek = date('w', $firstDate);
   $thisMonthDay = date('t', $firstDate);
 
@@ -40,7 +44,7 @@
 <header>
   <div class="top-header container-fluid  text-white col-12 border-bottom border-warning">
     <div class="head-logo col col-7 pt-1">CALENDAR</div>
-    <form class="form col col-5 " action="calendar1.php" method="$_POST">
+    <form class="form col col-5 " action="calendar.php" method="$_GET">
       <div class="nav active font-weight-bold" href="#">─DATE SEARCH─</div>
       <div class="date input "><input  type="number" name="year" placeholder="Year" min="1970" ></div>
       <div class="date input " ><input  type="number" name="month" placeholder="Month" min="1" max="12"></div>
@@ -52,11 +56,11 @@
   <div class="article bg-dark d-flex col-12 p-0">
     <div class="calendar col-4 p-0">
       <div class="warning-month bg-warning text-white text-center font-weight-bold">
-        <h4><?=date('F',$firstDate);?></h4>
-        <h1 class="months"><?=date('n',$firstDate);?></h1>
+        <h4 class="text-white font-weight-bold"><?=date('F',$firstDate);?></h4>
+        <h1 class="months text-white"><?=date('n',$firstDate);?></h1>
       </div>
       <div class="YEAR bg-warning ">
-        <h4 class="onYEAR  text-white p-0">YEAR</h4>
+        <h4 class="onYEAR  text-white font-weight-bold p-0">YEAR</h4>
         <h1 class="inYEAR m-0 text-white"><?=date('Y',$firstDate);?></h1>
       </div>
       <div class="CALENDAR container pt-1.5 col-12">
@@ -72,6 +76,8 @@
         </tr>
         <tbody>
         <?php
+      
+
               for ($i = 0; $i < 6; $i++) {
                   echo "<tr>";
                   for ($j = 1; $j <= 7; $j++) {
@@ -103,13 +109,13 @@
         $nextMonth = ($thisMonthTrue + 1);
         $preMonth = ($thisMonthTrue - 1);    
         echo"<tr class='border-top'>";
-        echo"<td><a href='calendar1.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
+        echo"<td><a href='calendar.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
-        echo"<td><a href='calendar1.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
+        echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
         echo"</tr>";
     ?>
     </table>
