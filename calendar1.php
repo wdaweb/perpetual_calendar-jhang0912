@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rufina&display=swap" rel="stylesheet">
     <title>CALENDAR</title>
   </head>
-  <body>
+  <body >
 <header>
   <div class="top-header container-fluid  text-white col-12 border-bottom border-warning">
     <div class="head-logo col col-7 pt-1">CALENDAR</div>
@@ -24,10 +24,13 @@
 </header>
 <article>
   <div class="article bg-dark d-flex">
-    <div class="calendar col-4">
-      <div class="warning-month bg-warning text-white text-center font-weight-bold">
+    <div class="calendar col-4 p-0">
+    <div class="warning-month bg-warning text-white text-center font-weight-bold">
         <h4>JANUARY</h4>
         <h1 class="months">01</h1>
+      </div>
+      <div class="years container-fluid text-white bg-warning">
+        <h1 class="m-0">2020</h1>
       </div>
     </div>
     <div class="images col-8 ">
@@ -88,46 +91,17 @@
     </div>
   </div>
 </article>
-<footer class="footer container-fluid border-top border-warning d-flex pr-0 ">
-  <div class="jhang col-12 text-white d-flex">2020 DESIGN BY<div class="yue text-danger">&ensp;JHANG YUE KAI</div></div>
-  </footer>
-  <div class="artist col-3 text-white text-center">
+<footer class="footer col-12 border-top border-warning d-flex pr-0 ">
+  <div class="jhang col-10 text-white d-flex">2020 DESIGN BY
+    <div class="yue text-danger">&ensp;JHANG YUE KAI</div>
+  </div>
+ <div class="artist col-2 text-white text-center">
     <h6 class="john text-center">ARTIST</h6>
     <p><img src="images/5e34470404fdef781ff2635db3cae05c.jpg"></p>
     <h5>John William Waterhouse</h5>
     <p class="william text-center">(April 6, 1849 - February 10, 1917) Painter of classical, historical, and literary subjects. John William Waterhouse was born in 1849 in Rome, where his father worked as a painter. He was referred to as "Nino" throughout his life. In the 1850s the family returned to England.</p>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</footer>
 <div class="jquery package">
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>

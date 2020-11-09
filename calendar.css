@@ -39,8 +39,12 @@ width: 100vw;
 height:85vh;
 position:relative;
 }
+.years{
+display: inline-block;
+}
 .warning-month{
 position: absolute;
+top:-10px;
 left: 77.5%;
 width:10rem;
 height:11rem;
@@ -81,19 +85,12 @@ h1{
   font-size: 0.9rem;
 }
 
-.artist{
+.artist .john{
   background-color: rgb(20, 20, 20);
   font-family: 'Rufina', serif;
-  display: inline-block;
-  width: 247.38px;
   height:5vh;
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
   transform-origin:50% 100%;
-  opacity:100;
-  transition: all 0.5s ease;
-  z-index: 20;
+  transition: all 0.33s ease;
   overflow: hidden;
   border: 1px solid rgb(255, 193, 7);
   padding-left:15px;
@@ -103,10 +100,6 @@ h1{
 }
 .artist:hover{
   height: 90vh;
-  opacity:100;
-}
-.john{
-line-height: 34.11px;
 }
 .william{
 font-family: 'Rufina', serif;
