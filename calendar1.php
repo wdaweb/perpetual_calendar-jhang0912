@@ -23,17 +23,92 @@
   </div>
 </header>
 <article>
-  <div class="article bg-dark d-flex">
+  <div class="article bg-dark d-flex col-12 p-0">
     <div class="calendar col-4 p-0">
-    <div class="warning-month bg-warning text-white text-center font-weight-bold">
+      <div class="warning-month bg-warning text-white text-center font-weight-bold">
         <h4>JANUARY</h4>
         <h1 class="months">01</h1>
       </div>
-      <div class="years container-fluid text-white bg-warning">
-        <h1 class="m-0">2020</h1>
+      <div class="YEAR bg-warning"></div>
+      <div class="CALENDAR container pt-1.5 col-12">
+      <table class="table text-center text-white table-borderless m-0">
+        <tr>
+            <th class="text-danger border-bottom">SUN</th>
+            <th class="border-bottom">MON</th>
+            <th class="border-bottom">TUE</th>
+            <th class="border-bottom">WED</th>
+            <th class="border-bottom">THU</th>
+            <th class="border-bottom">FRI</th>
+            <th class="text-danger border-bottom">SAT</th>
+        </tr>
+        <?php
+                if (!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
+                  $thisMonth = date('m');
+              } elseif (isset($_GET['nextMonth'])) {
+                  $thisMonth = $_GET['nextMonth'];
+              } elseif (isset($_GET['preMonth'])) {
+                  $thisMonth = $_GET['preMonth'];
+              }
+      
+              $thisMonthTrue = $thisMonth;
+              $Year = strtotime("+0 year");
+              $thisYear = date('Y', $Year);
+      
+              if($thisMonth > 11) {
+                  $thisYear = $thisYear + floor(($thisMonth-1)/12);
+                  $thisMonth = $thisMonth - 12 * ($thisYear - date("Y"));
+              }elseif($thisMonth<1){
+                  $thisYear=$thisYear - (floor($thisMonth/-12)+1);
+                  $thisMonth = $thisMonth + 12 * abs(($thisYear - date("Y")));
+              }
+              
+              $firstDate = strtotime(date("$thisYear-$thisMonth-1"));
+              $startDayWeek = date('w', $firstDate);
+              $thisMonthDay = date('t', $firstDate);
+      
+              for ($i = 0; $i < 6; $i++) {
+                  echo "<tr>";
+                  for ($j = 1; $j <= 7; $j++) {
+                      if ($i == 0 && $j <= $startDayWeek) {
+                          echo "<td>";
+                          echo "&ensp;";
+                          echo "</td>";
+                      } elseif (((7 * $i) + ($j - $startDayWeek)) > $thisMonthDay) {
+                        echo "<td>";
+                        echo "&ensp;";
+                        echo "</td>";
+                      } elseif ($j == 1 || $j == 7) {
+                          echo "<td class='text-danger';'>";
+                          echo (7 * $i) + ($j - $startDayWeek);
+                          echo "</td>";
+                      } else {
+                          echo "<td>";
+                          echo (7 * $i) + ($j - $startDayWeek);
+                          echo "</td>";
+                      }
+                  }
+                  echo "</tr>";
+              }
+        ?>
+            </table>
+    <table class="table text-center text-white table-borderless m-0">
+    <?php
+        $nextMonth = ($thisMonthTrue + 1);
+        $preMonth = ($thisMonthTrue - 1);    
+        echo"<tr class='border-top'>";
+        echo"<td><a href='calendar1.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td><a href='calendar1.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
+        echo"</tr>";
+    ?>
+    </table>
       </div>
     </div>
-    <div class="images col-8 ">
+    <div class="images col-8">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>

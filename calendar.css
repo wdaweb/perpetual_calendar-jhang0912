@@ -1,3 +1,6 @@
+*{
+  font-family: 'Josefin Sans', sans-serif;
+}
 .top-header{
   display: flex;
   height: 10vh;
@@ -39,16 +42,28 @@ width: 100vw;
 height:85vh;
 position:relative;
 }
-.years{
-display: inline-block;
-}
 .warning-month{
 position: absolute;
-top:-10px;
 left: 77.5%;
 width:10rem;
-height:11rem;
+height:25.1vh;
 z-index:10;
+}
+.YEAR{
+height: 25.1vh;
+width: 100%;
+}
+.CALENDAR{
+background-color: rgb(20, 20, 20);
+height: 59.9vh;
+width: 100%;
+
+
+}
+table{
+font-size: 1.2rem;
+border-radius: 10px;
+font-family: 'Josefin Sans', sans-serif;
 }
 h4{
 padding-top: 15%;
@@ -85,10 +100,13 @@ h1{
   font-size: 0.9rem;
 }
 
-.artist .john{
+.artist{
   background-color: rgb(20, 20, 20);
   font-family: 'Rufina', serif;
   height:5vh;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
   transform-origin:50% 100%;
   transition: all 0.33s ease;
   overflow: hidden;
@@ -100,6 +118,10 @@ h1{
 }
 .artist:hover{
   height: 90vh;
+  opacity:100;
+}
+.john{
+line-height: 34.11px;
 }
 .william{
 font-family: 'Rufina', serif;
