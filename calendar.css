@@ -3,92 +3,55 @@
 }
 .top-header{
   display: flex;
-  height: 10vh;
+  /* height: 10vh; */
   background-color: rgb(20, 20, 20);
 }
 .head-logo{
 font-family: 'Josefin Sans', sans-serif;
-font-size: 3rem;
+font-size: 3.5rem;
 letter-spacing: 0.75rem;
 transition: all 0.75s ease;
+line-height: 10vh;
+}
+.form{
+max-width:100%;
 }
 .head-logo:hover{
   color:rgb(255, 193, 7);
   letter-spacing: 1.5rem;
 }
-.form{
-  padding-left: 5rem;
-  display: flex;
-  flex-wrap: nowrap;
-}
-.nav{
-font-family: "GothamBold",Helvetica,Arial,sans-serif;
-line-height:69.24px;
-letter-spacing: 0.25rem;
-color:white;
-margin-right: 10px;
-white-space:nowrap;
-}
-.date{
-  padding-top: 20px;
-  margin-right: 5px;
+.search{
+  font-family: "GothamBold",Helvetica,Arial,sans-serif;
+  /* line-height: 10vh; */
+  letter-spacing: 0.5rem;
+  font-size: 1.25rem;
 }
 input{
+vertical-align:middle;
 border-radius: 4px;
-width: 100px;
+width: 110px;
 }
-.article{
-width: 100vw;
-height:85vh;
-position:relative;
+.left{
+max-width:100%;
+max-height:100%;
 }
-.warning-month{
-/* display: none; */
-position: absolute;
-left: 77.5%;
-width:10rem;
-height:25.1vh;
-z-index: 10;
+.year{
+  max-height:100%;
+  font-size: 2rem;
+  line-height: 14vh;
+  letter-spacing: 1.4rem;
 }
-.YEAR{
-height: 25.1vh;
+.year2{
+  font-size: 8rem;
+  line-height: 14vh;
 }
-.onYEAR{
-margin-left: 3.15rem;
-letter-spacing: 3.9rem;
+.month{
+  font-size: 2rem;
+  line-height: 14vh;
 }
-.inYEAR{
-padding-top: 0.3rem;
-padding-left: 3rem;
-font-size: 8rem;
-}
-.CALENDAR{
-background-color: rgb(20, 20, 20);
-height: 59.9vh;
-width: 100%;
-
-
-}
-table{
-font-size: 1.2rem;
-border-radius: 10px;
-font-family: 'Josefin Sans', sans-serif;
-}
-
-h4{
-margin: 0;
-}
-.months{
-  padding-top: 5px;
-  font-size:8rem;
-}
-.images{
-padding: 0;
-height:85vh;
-z-index: 0;
-}
-.calendar{
-height:85vh;
+.month2{
+  font-size: 8rem;
+  line-height: 14vh;
 }
 .footer{
 height:5vh;

@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link rel="stylesheet" href="calendar.css">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
     <link rel="Shortcut Icon" type="image/x-icon" href="images/calendar.ico" >
     <link href="https://fonts.googleapis.com/css2?family=Rufina&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calendar.css">
     <title>CALENDAR</title>
   </head>
   <body >
@@ -42,42 +42,38 @@
   $thisMonthDay = date('t', $firstDate);
 
 ?>
-<header>
-  <div class="top-header container-fluid  text-white col-12 border-bottom border-warning">
-    <div class="head-logo col col-7 pt-1">CALENDAR</div>
-    <form class="form col col-5 " action="calendar.php" method="$_GET">
-      <div class="nav active font-weight-bold" href="#">─DATE SEARCH─</div>
-      <div class="date input "><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
-      <div class="date input " ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
-      <div class="date"><input type="submit" class="btn btn-outline-warning btn-sm" value="search"></div>
+<header class="container-fluid  p-0">
+  <div class="top-header container text-white col-12 border-bottom border-warning p-0 ">
+    <div class="head-logo col-md-12 col-lg-7 ">CALENDAR</div>
+    <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center flex-wrap-nowrap" action="calendar.php" method="$_GET">
+      <div class="search font-weight-bold col-6 text-center">─DATE SEARCH─</div>
+      <div class="date input col-2"><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
+      <div class="date input col-2" ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
+      <div class="date col-2"><input type="submit" class="btn btn-outline-warning btn-sm" value="search"></div>
     </form>
   </div>
 </header>
-<article>
-  <div class="article bg-dark d-flex col-12 p-0">
-    <div class="calendar col-4 p-0">
-      <div class="warning-month bg-warning text-white text-center font-weight-bold">
-        <h4 class="text-white font-weight-bold"><?=date('F',$firstDate);?></h4>
-        <h1 class="months text-white"><?=date('n',$firstDate);?></h1>
-      </div>
-      <div class="YEAR bg-warning ">
-        <h4 class="onYEAR  text-white font-weight-bold p-0">YEAR</h4>
-        <h1 class="inYEAR m-0 text-white"><?=date('Y',$firstDate);?></h1>
-      </div>
-      <div class="CALENDAR container pt-1.5 col-12">
-      <table class="table  text-center text-white table-borderless m-0">
+<article class="container-fluid bg-dark d-flex p-0">
+  <div class="left container col col-4 p-0 ">
+    <div class="date container col-12 bg-warning p-0 d-flex flex-wrap">
+      <div class="year col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center font-weight-bold">YEAR</div>
+      <div class="year2 col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center"><?=date('Y',$firstDate);?></div>
+      <div class="month col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center font-weight-bold"><?=date('F',$firstDate);?></div>
+      <div class="month2 col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center"><?=date('n',$firstDate);?></div>
+    </div>
+    <div class="calendar col-12">
+    <table class="table text-center text-white table-borderless m-0">
         <tr>
-            <th class="text-danger border-bottom">SUN</th>
-            <th class="border-bottom">MON</th>
-            <th class="border-bottom">TUE</th>
-            <th class="border-bottom">WED</th>
-            <th class="border-bottom">THU</th>
-            <th class="border-bottom">FRI</th>
-            <th class="text-danger border-bottom">SAT</th>
+            <th class="text-danger border-bottom font-weight-bold h3 pb-3">SUN</th>
+            <th class="border-bottom font-weight-bold h3 pb-3">MON</th>
+            <th class="border-bottom font-weight-bold h3 pb-3">TUE</th>
+            <th class="border-bottom font-weight-bold h3 pb-3">WED</th>
+            <th class="border-bottom font-weight-bold h3 pb-3">THU</th>
+            <th class="border-bottom font-weight-bold h3 pb-3">FRI</th>
+            <th class="text-danger border-bottom font-weight-bold h3 pb-3">SAT</th>
         </tr>
         <tbody>
         <?php
-      
 
               for ($i = 0; $i < 6; $i++) {
                   echo "<tr>";
@@ -91,11 +87,11 @@
                         echo "&ensp;";
                         echo "</td>";
                       } elseif ($j == 1 || $j == 7) {
-                          echo "<td class='text-danger';'>";
+                          echo "<td class='text-danger h5 font-weight-light pt-4'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       } else {
-                          echo "<td>";
+                          echo "<td class='h5 font-weight-light  pt-4'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       }
@@ -105,18 +101,13 @@
         ?>
         </tbody>
             </table>
-    <table class="table  text-center text-white table-borderless m-0">
+
+    </div>
+    <div class="under col-12">
+    <table class="table text-center text-white table-borderless m-0">
     <?php
-
-
-
-$nextMonth = ($thisMonthTrue + 1);
-$preMonth = ($thisMonthTrue - 1);    
-
-if(isset($_GET['year']) && isset($_GET['month'])){
-  $nextMonth = ($thisMonthTrue + 1);
-  $preMonth = ($thisMonthTrue - 1);    
-    }
+        $nextMonth = ($thisMonthTrue + 1);
+        $preMonth = ($thisMonthTrue - 1);    
         echo"<tr class='border-top'>";
         echo"<td><a href='calendar.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
         echo"<td>&ensp;</td>";
@@ -128,64 +119,10 @@ if(isset($_GET['year']) && isset($_GET['month'])){
         echo"</tr>";
     ?>
     </table>
-      </div>
-    </div>
-    <div class="images col-8">
-    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-    <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="images/236b16f4-a16a-4fa2-9a5a-cc4eda1481b3sm.jpg" class="d-block w-100">
-      <div class="carousel-caption d-none d-md-block">
-      <h1>The Roses of Heliogabalus</h1>
-    <p>132.1 x 213.9 cms | 52 x 84 ins<br>Oil on canvas</p>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/IMG_0939sm.jpg" class="d-block w-100">
-      <div class="carousel-caption d-none d-md-block">
-      <h1>Hylas and the Nymphs</h1>
-    <p>98 x 163 cms | 38 1/2 x 64 ins<br>Oil on canvas</p>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/Waterhouse,_John_William_-_Saint_Cecilia_-_1895sm.jpg" class="d-block w-100">
-      <div class="carousel-caption d-none d-md-block">
-      <h1>Saint Cecilia</h1>
-    <p>123.2 x 200.7 cms | 48 1/2 x 79 ins<br>Oil on canvas</p>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/John William Waterhouse - Ulysses and the Sirenssm.jpg" class="d-block w-100">
-      <div class="carousel-caption d-none d-md-block">
-      <h1>Ulysses and the Sirens</h1>
-    <p>100.6 cm × 202 cms | 39.6 in × 79.5 ins<br>Oil on canvas</p>
-  </div>
-    </div>
-    <div class="carousel-item">
-      <img src="images/John William Waterhousesm.jpg" class="d-block w-100">
-      <div class="carousel-caption d-none d-md-block">
-      <h1>Flora and the Zephyrs</h1>
-    <p>104.1 x 203.8 cms | 41 x 80 1/4 ins<br>Oil on canvas</p>
-  </div>
+
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-  </div>
-    </div>
+  <div class="right col col-8 bg-danger">
   </div>
 </article>
 <footer class="footer col-12 border-top border-warning d-flex pr-0 ">
