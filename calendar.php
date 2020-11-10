@@ -27,6 +27,7 @@
   if(isset($_GET['year']) && isset($_GET['month'])){
   $thisYear=$_GET['year'];
   $thisMonth=$_GET['month'];
+  $thisMonthTrue=((12*($thisYear-date("Y")))+$thisMonth);
   }elseif($thisMonth > 11) {
   $thisYear = $thisYear + floor(($thisMonth-1)/12);
   $thisMonth = $thisMonth - 12 * ($thisYear - date("Y"));
@@ -106,8 +107,16 @@
             </table>
     <table class="table  text-center text-white table-borderless m-0">
     <?php
-        $nextMonth = ($thisMonthTrue + 1);
-        $preMonth = ($thisMonthTrue - 1);    
+
+
+
+$nextMonth = ($thisMonthTrue + 1);
+$preMonth = ($thisMonthTrue - 1);    
+
+if(isset($_GET['year']) && isset($_GET['month'])){
+  $nextMonth = ($thisMonthTrue + 1);
+  $preMonth = ($thisMonthTrue - 1);    
+    }
         echo"<tr class='border-top'>";
         echo"<td><a href='calendar.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
         echo"<td>&ensp;</td>";
