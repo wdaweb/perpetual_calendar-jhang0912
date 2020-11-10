@@ -45,7 +45,7 @@
 <header class="container-fluid  p-0">
   <div class="top-header container text-white col-12 border-bottom border-warning p-0 ">
     <div class="head-logo col-md-12 col-lg-7 ">CALENDAR</div>
-    <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center flex-wrap-nowrap" action="calendar.php" method="$_GET">
+    <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center" action="calendar.php" method="$_GET">
       <div class="search font-weight-bold col-6 text-center">─DATE SEARCH─</div>
       <div class="date input col-2"><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
       <div class="date input col-2" ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
@@ -53,15 +53,34 @@
     </form>
   </div>
 </header>
-<article class="container-fluid bg-dark d-flex p-0">
-  <div class="left container col col-4 p-0 ">
+<article class="container-fluid bg-danger d-flex p-0">
+  <div class="left col-4 p-0">
     <div class="date container col-12 bg-warning p-0 d-flex flex-wrap">
-      <div class="year col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center font-weight-bold">YEAR</div>
-      <div class="year2 col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center"><?=date('Y',$firstDate);?></div>
-      <div class="month col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center font-weight-bold"><?=date('F',$firstDate);?></div>
-      <div class="month2 col-sm-12 col-md-6 col-lg-6 w-100 text-white text-center"><?=date('n',$firstDate);?></div>
+      <div class="year col-sm-12 col-md-6 col-lg-6 w-100   text-center font-weight-bold ">YEAR</div>
+      <div class="year2 col-sm-12 col-md-6 col-lg-6 w-100   text-center"><?=date('Y',$firstDate);?></div>
+      <div class="month col-sm-12 col-md-6 col-lg-6 w-100 text-warning  text-center font-weight-bold"><?=date('F',$firstDate);?></div>
+      <div class="month2 col-sm-12 col-md-6 col-lg-6 w-100 text-warning  text-center"><?=date('n',$firstDate);?></div>
     </div>
-    <div class="calendar col-12">
+    <div class="under col-12">
+    <table class="table text-center text-white table-borderless m-0">
+    <?php
+        $nextMonth = ($thisMonthTrue + 1);
+        $preMonth = ($thisMonthTrue - 1);    
+        echo"<tr>";
+        echo"<td><a href='calendar.php?preMonth={$preMonth}' class=' btn btn-lg btn-outline-light text-decoration-none h2 '>LAST</a></td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td>&ensp;</td>";
+        echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='btn btn-lg btn-outline-light text-decoration-none
+        h2 '>NEXT</a></td>";
+        echo"</tr>";
+    ?>
+    </table>
+</div>
+
+<div class="calendar col-12">
     <table class="table text-center text-white table-borderless m-0">
         <tr>
             <th class="text-danger border-bottom font-weight-bold h3 pb-3">SUN</th>
@@ -87,11 +106,11 @@
                         echo "&ensp;";
                         echo "</td>";
                       } elseif ($j == 1 || $j == 7) {
-                          echo "<td class='text-danger h5 font-weight-light pt-4'>";
+                          echo "<td class='text-danger h5 font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       } else {
-                          echo "<td class='h5 font-weight-light  pt-4'>";
+                          echo "<td class='h5 font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       }
@@ -101,32 +120,66 @@
         ?>
         </tbody>
             </table>
-
+</div>
+  </div>
+<div class="right col col-sm-12 col-md-8 col-lg-8 bg-danger p-0">
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="images/236b16f4-a16a-4fa2-9a5a-cc4eda1481b3sm.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+      <h1>The Roses of Heliogabalus</h1>
+    <p>132.1 x 213.9 cms | 52 x 84 ins<br>Oil on canvas</p>
+  </div>
     </div>
-    <div class="under col-12">
-    <table class="table text-center text-white table-borderless m-0">
-    <?php
-        $nextMonth = ($thisMonthTrue + 1);
-        $preMonth = ($thisMonthTrue - 1);    
-        echo"<tr class='border-top'>";
-        echo"<td><a href='calendar.php?preMonth={$preMonth}' class='text-decoration-none text-white'>LAST</a></td>";
-        echo"<td>&ensp;</td>";
-        echo"<td>&ensp;</td>";
-        echo"<td>&ensp;</td>";
-        echo"<td>&ensp;</td>";
-        echo"<td>&ensp;</td>";
-        echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='text-decoration-none text-white'>NEXT</a></td>";
-        echo"</tr>";
-    ?>
-    </table>
-
+    <div class="carousel-item">
+      <img src="images//IMG_0939sm.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+      <h1>Hylas and the Nymphs</h1>
+    <p>98 x 163 cms | 38 1/2 x 64 ins<br>Oil on canvas</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/Waterhouse,_John_William_-_Saint_Cecilia_-_1895sm.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+      <h1>Saint Cecilia</h1>
+    <p>123.2 x 200.7 cms | 48 1/2 x 79 ins<br>Oil on canvas</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/John William Waterhouse - Ulysses and the Sirenssm.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+      <h1>Ulysses and the Sirens</h1>
+    <p>100.6 cm × 202 cms | 39.6 in × 79.5 ins<br>Oil on canvas</p>
+  </div>
+    </div>
+    <div class="carousel-item">
+      <img src="images/John William Waterhousesm.jpg" class="d-block w-100">
+      <div class="carousel-caption d-none d-md-block">
+      <h1>Flora and the Zephyrs</h1>
+    <p>104.1 x 203.8 cms | 41 x 80 1/4 ins<br>Oil on canvas</p>
+  </div>
     </div>
   </div>
-  <div class="right col col-8 bg-danger">
-  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
 </article>
 <footer class="footer col-12 border-top border-warning d-flex pr-0 ">
-  <div class="jhang col-10 text-white d-flex">2020 DESIGN BY
+  <div class="jhang col-10 text-white d-flex ">2020 DESIGN BY
     <div class="yue text-danger">&ensp;JHANG YUE KAI</div>
   </div>
   <div class="artist col-2 text-white text-center">
