@@ -1,10 +1,14 @@
 *{
   font-family: 'Josefin Sans', sans-serif;
 }
+
+
 /* 網頁開頭標題區域 */
+
+
 .top-header{
   display: flex;
-  height: 10vh;
+  /* height: 10vh; */
   background-color: rgb(20, 20, 20);
 }
 .head-logo{
@@ -13,9 +17,6 @@ font-size: 3.5rem;
 letter-spacing: 0.75rem;
 transition: all 0.75s ease;
 line-height: 10vh;
-}
-.form{
-max-width:100%;
 }
 .head-logo:hover{
   color:rgb(255, 193, 7);
@@ -37,11 +38,9 @@ width: 110px;
 /* -----網頁中心區域----- */
 
 
-article{
-  height: 85vh;
-}
-
 .left{
+
+border: 2px solid rgb(255, 193, 7);
 height: 85vh;
 max-width:100%;
 max-height:100%;
@@ -53,35 +52,72 @@ max-height:100%;
   letter-spacing: 1.4rem;
 }
 .year2{
-  font-size: 8rem;
+  font-size: 7rem;
   line-height: 14vh;
 }
+
 .month{
   background-color: rgb(20, 20, 20);
   font-size: 2rem;
   line-height: 14vh;
-  border: 1.5px solid rgb(255, 193, 7);
   border-top: 0;
   border-right: 0;
 }
 .month2{
-  border: 1.5px solid rgb(255, 193, 7);
   border-top: 0;
   border-left: 0;
   background-color: rgb(20, 20, 20);
-font-size: 8rem;
+font-size: 7rem;
 line-height: 14vh;
+}
+th{
+  font-size: 1.2rem;
 }
 .text-decoration-none:hover{
   color: rgb(20, 20, 20);
-}
-.left{
-height:85vh;
 }
 .d-block{
   display: block;
   width:100%;
   height:85vh;
+}
+@media(max-height:900px){
+  .year{
+    font-size: 2rem;
+  }
+  .year2{
+    font-size: 5rem;
+  }
+  .month2{
+    font-size: 5rem;
+  }
+  th{
+  font-size: 0.5rem;
+  }
+  td{
+  font-size: 0.5rem;
+  }
+  .btn{
+  font-size: 0.5rem;
+  }
+}
+@media(max-height:650px){
+  .year{
+    font-size: 1rem;
+  }
+  .year2{
+    font-size: 3rem;
+  }
+  .month{
+  font-size: 1rem;
+  }
+  .month2{
+  font-size: 3rem;
+  }
+  
+}
+@media(max-width:600px){
+  
 }
 
 
@@ -113,20 +149,17 @@ background-color: rgb(20, 20, 20);
   font-family: 'Rufina', serif;
   height:5vh;
   position: absolute;
-  right: 0px;
-  bottom: 0px;
+  right:0;
+  bottom:0;
   transform-origin:50% 100%;
   transition: all 0.33s ease;
   overflow: hidden;
   border: 1px solid rgb(255, 193, 7);
-  padding-left:15px;
-  padding-right:10px;
-  padding-bottom:10px;
   letter-spacing: 0.1rem;
-  z-index: 100;
+  z-index:10;
 }
 .artist:hover{
-  height:700px;
+  height:90vh;
   opacity:100;
   z-index: 10;
 }

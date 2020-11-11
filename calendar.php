@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="calendar.css">
     <title>CALENDAR</title>
   </head>
-  <body >
+  <body class="d-flex flex-column" >
 <?php
   if(!isset($_GET['nextMonth']) && !isset($_GET['preMonth'])) {
   $thisMonth = date('m');
@@ -42,24 +42,24 @@
   $thisMonthDay = date('t', $firstDate);
 
 ?>
-<header class="container-fluid  p-0">
+<header class="container-fluid  p-0  ">
   <div class="top-header container text-white col-12 border-bottom border-warning p-0 ">
     <div class="head-logo col-md-12 col-lg-7 ">CALENDAR</div>
     <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center" action="calendar.php" method="$_GET">
       <div class="search font-weight-bold col-6 text-center">─DATE SEARCH─</div>
-      <div class="date input col-2"><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
-      <div class="date input col-2" ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
-      <div class="date col-2"><input type="submit" class="btn btn-outline-warning btn-sm" value="search"></div>
+      <div class="date input col-2 mr-1"><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
+      <div class="date input col-2 mr-1" ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
+      <div class="date col-2 mr-1"><input type="submit" class="btn btn-outline-warning btn-sm" value="search"></div>
     </form>
   </div>
 </header>
-<article class="container-fluid bg-danger d-flex p-0">
+<article class="container-fluid  d-flex p-0">
   <div class="left col-4 p-0">
     <div class="date container col-12 bg-warning p-0 d-flex flex-wrap">
-      <div class="year col-sm-12 col-md-6 col-lg-6 w-100   text-center font-weight-bold ">YEAR</div>
-      <div class="year2 col-sm-12 col-md-6 col-lg-6 w-100   text-center"><?=date('Y',$firstDate);?></div>
-      <div class="month col-sm-12 col-md-6 col-lg-6 w-100 text-warning  text-center font-weight-bold"><?=date('F',$firstDate);?></div>
-      <div class="month2 col-sm-12 col-md-6 col-lg-6 w-100 text-warning  text-center"><?=date('n',$firstDate);?></div>
+      <div class="year col-sm-12 col-md-6 col-lg-6 text-center font-weight-bold ">YEAR</div>
+      <div class="year2 col-sm-12 col-md-6 col-lg-6 text-center"><?=date('Y',$firstDate);?></div>
+      <div class="month col-sm-12 col-md-6 col-lg-6 text-warning  text-center font-weight-bold"><?=date('F',$firstDate);?></div>
+      <div class="month2 col-sm-12 col-md-6 col-lg-6 text-warning  text-center"><?=date('n',$firstDate);?></div>
     </div>
     <div class="under col-12">
     <table class="table text-center text-white table-borderless m-0">
@@ -67,14 +67,14 @@
         $nextMonth = ($thisMonthTrue + 1);
         $preMonth = ($thisMonthTrue - 1);    
         echo"<tr>";
-        echo"<td><a href='calendar.php?preMonth={$preMonth}' class=' btn btn-lg btn-outline-light text-decoration-none h2 '>LAST</a></td>";
+        echo"<td><a href='calendar.php?preMonth={$preMonth}' class=' btn btn-lg btn-outline-light text-decoration-none '>LAST</a></td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='btn btn-lg btn-outline-light text-decoration-none
-        h2 '>NEXT</a></td>";
+        '>NEXT</a></td>";
         echo"</tr>";
     ?>
     </table>
@@ -83,13 +83,13 @@
 <div class="calendar col-12">
     <table class="table text-center text-white table-borderless m-0">
         <tr>
-            <th class="text-danger border-bottom font-weight-bold h3 pb-3">SUN</th>
-            <th class="border-bottom font-weight-bold h3 pb-3">MON</th>
-            <th class="border-bottom font-weight-bold h3 pb-3">TUE</th>
-            <th class="border-bottom font-weight-bold h3 pb-3">WED</th>
-            <th class="border-bottom font-weight-bold h3 pb-3">THU</th>
-            <th class="border-bottom font-weight-bold h3 pb-3">FRI</th>
-            <th class="text-danger border-bottom font-weight-bold h3 pb-3">SAT</th>
+            <th class="text-danger border-bottom font-weight-bold  ">SUN</th>
+            <th class="border-bottom font-weight-bold  ">MON</th>
+            <th class="border-bottom font-weight-bold  ">TUE</th>
+            <th class="border-bottom font-weight-bold  ">WED</th>
+            <th class="border-bottom font-weight-bold  ">THU</th>
+            <th class="border-bottom font-weight-bold  ">FRI</th>
+            <th class="text-danger border-bottom font-weight-bold  ">SAT</th>
         </tr>
         <tbody>
         <?php
@@ -106,11 +106,11 @@
                         echo "&ensp;";
                         echo "</td>";
                       } elseif ($j == 1 || $j == 7) {
-                          echo "<td class='text-danger h5 font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
+                          echo "<td class='text-danger  font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       } else {
-                          echo "<td class='h5 font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
+                          echo "<td class=' font-weight-light' style='padding:2.5rem 0px 0px 0px;'>";
                           echo (7 * $i) + ($j - $startDayWeek);
                           echo "</td>";
                       }
@@ -122,7 +122,7 @@
             </table>
 </div>
   </div>
-<div class="right col col-sm-12 col-md-8 col-lg-8 bg-danger p-0">
+<div class="right col col-sm-12 col-md-8 col-lg-8  p-0">
   <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
     <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -178,11 +178,11 @@
   </a>
 
 </article>
-<footer class="footer col-12 border-top border-warning d-flex pr-0 ">
+<footer class="footer col-12 border-top border-warning d-flex p-0 ">
   <div class="jhang col-10 text-white d-flex ">2020 DESIGN BY
     <div class="yue text-danger">&ensp;JHANG YUE KAI</div>
   </div>
-  <div class="artist col-2 text-white text-center">
+  <div class="artist col-2 text-white text-center d-flex flex-column align-items-center">
     <h6 class="john text-center">ARTIST</h6>
     <p><img src="images/5e34470404fdef781ff2635db3cae05c.jpg"></p>
     <h5>John William Waterhouse</h5>
