@@ -45,7 +45,7 @@
 <header class="container-fluid  p-0  ">
   <div class="top-header container text-white col-12 border-bottom border-warning p-0 ">
     <div class="head-logo col-md-12 col-lg-7 ">CALENDAR</div>
-    <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center" action="calendar.php" method="$_GET">
+    <form class="form col-md-12 col-lg-5 d-flex justify-content-center align-items-center" action="index.php" method="$_GET">
       <div class="search font-weight-bold col-6 text-center">─DATE SEARCH─</div>
       <div class="date input col-2 mr-1"><input  type="number" name="year" placeholder="Year" min="1970" required ></div>
       <div class="date input col-2 mr-1" ><input  type="number" name="month" placeholder="Month" min="1" max="12" required></div>
@@ -67,13 +67,13 @@
         $nextMonth = ($thisMonthTrue + 1);
         $preMonth = ($thisMonthTrue - 1);    
         echo"<tr>";
-        echo"<td><a href='calendar.php?preMonth={$preMonth}' class=' btn btn-lg btn-outline-light text-decoration-none '>LAST</a></td>";
+        echo"<td><a href='index.php?preMonth={$preMonth}' class=' btn btn-lg btn-outline-light text-decoration-none '>LAST</a></td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
         echo"<td>&ensp;</td>";
-        echo"<td><a href='calendar.php?nextMonth={$nextMonth}'class='btn btn-lg btn-outline-light text-decoration-none
+        echo"<td><a href='index.php?nextMonth={$nextMonth}'class='btn btn-lg btn-outline-light text-decoration-none
         '>NEXT</a></td>";
         echo"</tr>";
     ?>
